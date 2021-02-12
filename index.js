@@ -2,6 +2,10 @@ const express=require('express');
 const app=express();
 const port=8000;
 const expressLayouts=require('express-ejs-layouts');
+const cookieParser=require('cookie-parser');
+
+app.use(express.urlencoded());//appending form data to body no
+app.use(cookieParser());
 
 const db=require('./config/mongoose');
 

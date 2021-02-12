@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const userSchema=mongoose.newSchema({
+const userSchema=new mongoose.Schema({
     email:{
         type:String,
         required:true,
@@ -15,7 +15,7 @@ const userSchema=mongoose.newSchema({
         required:true
     }
 },{
-    timeStamps:true
+    timestamps:true
 });
 
 const User=mongoose.model('User',userSchema);
