@@ -1,7 +1,14 @@
 const express=require('express');
 const app=express();
 const port=8000;
+const expressLayouts=require('express-ejs-layouts');
 
+app.use(expressLayouts);
+/**
+ * app.use(expressLayouts);
+ * kk, so what it does is : if in controller i say res.render('xyz');
+ * then it will combine my (layout.ejs+this xyz) cool
+ */
 
 //use express router
 app.use('/',require('./routes'));
