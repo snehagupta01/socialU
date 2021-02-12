@@ -100,3 +100,9 @@ module.exports.createSession=function(req,res){
         }
     });  
 }
+
+module.exports.signOut=function(req,res){
+    //res.cookie('user_id',null);
+    res.clearCookie('user_id');
+    return res.redirect('/users/sign-in');
+}
