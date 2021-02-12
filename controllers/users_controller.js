@@ -17,3 +17,13 @@ module.exports.signIn=function(req,res){
         title:"SIGN IN"
     });
 }
+
+//get the sign up later
+module.exports.create=function(req,res){
+    ///later
+}
+
+//sign in and create session for users
+module.exports.createSession=function(req,res){
+    ///later
+}
