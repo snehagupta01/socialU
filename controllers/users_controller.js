@@ -4,8 +4,24 @@
 const User = require("../models/user");
 
 module.exports.profile=function(req,res){
-    console.log(req.cookies);
-    res.send("<h1>Profile Page : SG</h1>")
+    // console.log(req.cookies);
+    // res.send("<h1>Profile Page : SG</h1>")
+    if(req.cookies.user_id)
+    {
+       User.findById({_id:req.cookies.user_id},function(err,user){
+           if(user)
+           {
+               return res.render('user_profile',{
+                   title:"Profile Page No"
+               });
+           }
+           return res.redirect('/users/sign-in'); 
+       })
+    }
+    else
+    {
+        return res.redirect('/users/sign-in');
+    }
 }
 
 //render the signup page
@@ -81,12 +97,5 @@ module.exports.createSession=function(req,res){
             //handle user not found
             return res.redirect('back');
         }
-    });
-    
-
-    
-
-    
-
-    
+    });  
 }
