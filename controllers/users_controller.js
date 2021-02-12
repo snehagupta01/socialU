@@ -12,7 +12,8 @@ module.exports.profile=function(req,res){
            if(user)
            {
                return res.render('user_profile',{
-                   title:"Profile Page No"
+                   title:"Profile Page No",
+                   user:user
                });
            }
            return res.redirect('/users/sign-in'); 
