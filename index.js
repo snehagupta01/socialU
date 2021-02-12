@@ -3,6 +3,8 @@ const app=express();
 const port=8000;
 const expressLayouts=require('express-ejs-layouts');
 
+app.use(express.static('./assets'));
+
 app.use(expressLayouts);
 /**
  * app.use(expressLayouts);
@@ -11,6 +13,11 @@ app.use(expressLayouts);
  */
 
 //use express router
+
+//extract links & scripts from individual pages and place them in head & end of body resp
+app.set("layout extractStyles", true);
+app.set("layout extractScripts", true);
+
 app.use('/',require('./routes'));
 //app.use('/',require('./routes/index'));(by def will fetch index)
 
