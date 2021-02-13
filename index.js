@@ -4,8 +4,11 @@ const port=8000;
 const expressLayouts=require('express-ejs-layouts');
 const cookieParser=require('cookie-parser');
 const db=require('./config/mongoose');
+
 //used for session-cookie
 const session=require('express-session');
+const MongoStore=require('connect-mongo')(session);
+
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 
@@ -29,6 +32,7 @@ app.set("layout extractScripts", true);
 app.set('view engine','ejs');
 app.set('views','./views');
 
+///mongo store is usedd to store session-cookie
 app.use(session({
     name:'socialU',
     ///later->change the secret before deployment in production modee
@@ -37,7 +41,16 @@ app.use(session({
     resave:false,
     cookie:{
         maxAge:(1000*60*100)
-    }
+    },
+    store:new MongoStore(
+        {
+        mongooseConnection:db,
+        autoRemove:'disabled'
+        },
+        function(err){
+            console.log(err || 'connect mongo-db setup ok');
+        }
+    )
 }));
 
 app.use(passport.initialize());
