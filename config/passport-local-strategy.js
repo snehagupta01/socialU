@@ -50,10 +50,10 @@ passport.checkAuthentication=function(req,res,next){
         return next();
     }
     //user not signed in
-    return res.redirect('/users-sign-in');
+    return res.redirect('/users/sign-in');
 };
 
-passport.setAuthenticatedUser=function(req,res){//check wheteer session cookie is present or not if p, aight authenticated
+passport.setAuthenticatedUser=function(req,res,next){//check wheteer session cookie is present or not if p, aight authenticated
     if(req.isAuthenticated())
     {
         //req.user contains the current signed in user from session-cookie & we r sending this to local for views

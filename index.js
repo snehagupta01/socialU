@@ -43,7 +43,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//app.use(passport.setAuthenticatedUser);
+app.use(passport.setAuthenticatedUser);
 
 app.use('/',require('./routes'));
 //app.use('/',require('./routes/index'));(by def will fetch index)

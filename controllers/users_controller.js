@@ -5,7 +5,10 @@ const User = require("../models/user");
 
 module.exports.profile=function(req,res){
     // console.log(req.cookies);
-     res.send("<h1>Profile Page : SG</h1>")
+     res.render('user_profile',{
+         title:"Profile Page|SocialU",
+        // user:res.locals.user
+     });
     // if(req.cookies.user_id)
     // {
     //    User.findById({_id:req.cookies.user_id},function(err,user){
