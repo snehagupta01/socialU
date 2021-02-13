@@ -13,4 +13,15 @@ so this link tag isfloating in body no, to place it in head
                 <textarea name="content" rows="3" cols="30" placeholder="type here..."></textarea>
                 <input type="submit" value="POST"> 
         </form>
+        <div id="posts-list-container">
+                <ul>
+                        <% for (post of posts) {%>
+                                <li> 
+                                        <%= post.content %>
+                                        <br>
+                                        <small><%= post.user.name %></small>
+                                </li>
+                        <% } %>
+                </ul>
+        </div>
 </section>
