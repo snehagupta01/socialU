@@ -1,5 +1,16 @@
-        <link rel="stylesheet" href="/css/user_profile.css">
-        <!-- so this link tag if floating in body no, to place it in head
-        tell express to extract style and script and place them in head & in the end of body no
-        -->
-        <h1>SocialU <%=title%> </h1>
+<link rel="stylesheet" href="/css/user_profile.css">
+<% if(false) {%>
+//comment
+so this link tag isfloating in body no, to place it in head
+//tell express to extract style and script and place them in head & in the end of body no
+<%}%>
+
+<h1>SocialU <%=title%> </h1>
+
+<section id="feed-posts">
+        <h4>Posts</h4>
+        <form action="/posts/create" id="new-post-form" method="POST">
+                <textarea name="content" rows="3" cols="30" placeholder="type here..."></textarea>
+                <input type="submit" value="POST"> 
+        </form>
+</section>
