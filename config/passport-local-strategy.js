@@ -43,4 +43,22 @@ passport.deserializeUser(function(id,done){
     });
 });
 
+//check if the usser is authenticated(middleware)
+passport.checkAuthentication=function(req,res,next){
+    if(req.isAuthenticated())
+    {
+        return next();
+    }
+    //user not signed in
+    return res.redirect('/users-sign-in');
+};
+
+passport.setAuthenticatedUser=function(req,res){//check wheteer session cookie is present or not if p, aight authenticated
+    if(req.isAuthenticated())
+    {
+        //req.user contains the current signed in user from session-cookie & we r sending this to local for views
+        res.locals.user=req.user;
+    }
+    next();
+}
 module.exports=passport;
