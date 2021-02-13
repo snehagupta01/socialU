@@ -9,9 +9,18 @@ const db=require('./config/mongoose');
 const session=require('express-session');
 const MongoStore=require('connect-mongo')(session);
 
+const sassMiddleware=require('node-sass-middleware');
+
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 
+app.use(sassMiddleware({
+    src:'./assets/scss',
+    dest:'./assets/css',
+    debug:true,
+    outputStyle:'extended',
+    prefix:'/css'
+}));
 app.use(express.urlencoded());//appending form data to body no
 
 app.use(cookieParser());

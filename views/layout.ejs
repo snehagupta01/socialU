@@ -4,25 +4,22 @@
             <%= title %>
         </title>
         <link rel="stylesheet" href="/css/layout.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
         <%- style %>
     </head>
     <body>
 
-        <!-- <header>
-            Page header
-        </header> include partial no -->
-
+    
         <%- include('_header'); %>
 
-        <!-- <h1>SocialU <%=title%> </h1>
-         -->
+        <main id="layout-main">
+            <%- body %>
 
-         <%- body %>
+        </main>
 
         <%- include('_footer.ejs'); %>
-        <!-- <footer>
-            Page footer
-        </footer> include partial no-->
+      
         <%- script %>
     </body>
 </html>
