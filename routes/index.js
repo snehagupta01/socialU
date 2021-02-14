@@ -9,11 +9,12 @@ const router=express.Router();
 
 console.log("router loaded");
 
-router.get('/',passport.checkAuthentication,homeController.home);
+router.get('/',homeController.home);
 router.use('/users',require('../routes/users'));/*
 if anything comes related to user ,user route will take care of it no,
 and it is futher mapped 
 */
 router.use('/posts',require('../routes/posts'));
+router.use('/comments',require('../routes/comments'));
 
 module.exports=router;
