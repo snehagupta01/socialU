@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 const commentSchema=new mongoose.Schema({
     content:{
         type:String,
-        reqquired:true
+        required:true
     },
     user:{//cmnt E to user no
         type:mongoose.Schema.Types.ObjectId,

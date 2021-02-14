@@ -3,8 +3,8 @@ const passport = require('passport');
 
 const router=express.Router();
 
-const comments_controller=require('../controllers/comments_controller');
+const commentsController=require('../controllers/comments_controller');
 
-router.post('/create',passport.checkAuthentication,comments_controller.create);
+router.post('/create',passport.checkAuthentication,commentsController.create);
 
 module.exports=router;
