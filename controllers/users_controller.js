@@ -5,10 +5,19 @@ const User = require("../models/user");
 
 module.exports.profile=function(req,res){
     // console.log(req.cookies);
-     res.render('user_profile',{
-         title:"Profile Page|SocialU",
-        // user:res.locals.user
-     });
+
+    User.findById(req.params.id,function(err,user){
+        return res.render('user_profile',{
+                 title:"Profile Page|SocialU",
+                profile_user:user
+             });
+    });
+
+
+    //  res.render('user_profile',{
+    //      title:"Profile Page|SocialU",
+    //     // user:res.locals.user
+    //  });
     // if(req.cookies.user_id)
     // {
     //    User.findById({_id:req.cookies.user_id},function(err,user){
